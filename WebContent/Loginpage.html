@@ -1,14 +1,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
-<img src="Desktop\image.jpg" width="1000" height="200"></img>
+<title> Login Page </title>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script type="text/javascript">
    function noBack()
    {
      window.history.forward();
    }
-	function validate(userName,password)
+   function validate(userName,password)
 	{
 		
 		if((userName.value=="") && (password.value==""))
@@ -26,43 +28,36 @@
 		
 	}
 </script>
-<title> Login Page </title>
+
 
 
 </head>
 <body bgcolor="#85FFFF" onload="noBack()"> 
-<center>
-<h3><MARQUEE>WELCOME TO RAILWAY PASSENGER LUGGAGE BOOKING</MARQUEE> </h3>
-</center>
-
-<form method="post" name="loginForm">
-<center>
-<table cellpadding="5" border="0">
-
-
-
-
-	<tr> 
-		<td align="left">User Name:</td>
-	
-		<td align="left"><input type="text" name="userName" size="20" ></td>
-	</tr>
-
-	<tr>	
-		<td align="left">Password:</td>
-		
-		<td align="left"><input type="password" name="password" size="20" ></td>
-	</tr>	
-	
-	<tr >
-		<td align="center" colspan="2"><input type="submit" value="Login" onclick="validate(userName,password)">
-		<input type="reset" value="Reset" ></td>
-    </tr>
-	
-
-	</table>
-</center>
-</form>
-
+<body  style="margin:150;margin-top: 200px;">
+<div class="container">
+	<div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                   <center> <h3 class="panel-title">Indian Railways LuggageBooking Portal</h3></center>
+                </div>
+                <div class="panel-body">
+                    <form role="form" method="post" name="loginForm">
+                        <fieldset>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Name" name="userName"  size="20" type="text" autofocus>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Password" name="password"  size="20" type="password" value="">
+                            </div>
+                            <!-- Change this to a button or input when using this as a form -->
+                            <input type="submit" class="btn btn-success btn-block" value="LogIn" onclick="validate(userName,password)"></input>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

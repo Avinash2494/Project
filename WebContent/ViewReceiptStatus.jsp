@@ -5,23 +5,25 @@
 <%@ page language="java" import="java.sql.ResultSet" %>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 </head>
 <body bgcolor="#85FFFF">
 
-<center>
-   <h4>Booking Status</h4>
-   </center>
+<div class="panel panel-primary">
+ <div class="panel-heading"><center>Booking Status<center></div>
+
    
-  <CENTER> 
-   <table cellpadding="5" border="2" >
+   <table cellpadding="5" border="0" class="table">
 
 
-             <tr>
-             <th bgcolor="CornflowerBlue" width="160">TICKET NUMBER</th>
-             <th bgcolor="CornflowerBlue" Width="160">PARTY NAME</th>
-             <th bgcolor="CornflowerBlue" width="160">BOOKING STATUS</th>
+             <tr class="success">
+             <th align="left" width="160">TICKET NUMBER</th>
+             <th align="left" Width="160">PARTY NAME</th>
+             <th align="left" width="160">BOOKING STATUS</th>
             
              </tr>
              
@@ -38,23 +40,24 @@
        
              
              
-             <tr>
-                 <td align="center" width="160"><%out.println(rs.getInt(1)); %></td>
-                 <td align="center" width="160"><%out.println(rs.getString(2)); %></td>
-                 <td align="center" width="160"><%out.println(rs.getString(3)); %></td>
+             <tr  class="info">
+                 <td align="left" width="160"><%out.println(rs.getInt(1)); %></td>
+                 <td align="left" width="160"><%out.println(rs.getString(2)); %></td>
+                 <td align="left" width="160"><%out.println(rs.getString(3)); %></td>
          
              </tr>
 
              <% }
          %>
          </table>
-</CENTER>
+</div>
 <br>
 <br>
 <br>
 <br>
 <center>
-<a href="clerkHomePage.html">Go back</a>
+<button type="button" class="btn btn-success">
+<a href="clerkHomePage.html" style="text-decoration: none;">Go back</a></button>
 </center>
 </body>
 </html>

@@ -5,6 +5,10 @@
 
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 
 	function verify1()
@@ -24,77 +28,83 @@
 </head>
 <body bgcolor="#85FFFF">
  
- <center>
-   <h4>PENDING DETAILS</h4>
-   </center>
+
+ <div class="panel panel-primary">
+ <div class="panel-heading"><center>PENDING DETAILS<center></div>
+
+ 
    
-  <CENTER> 
-   <table cellpadding="5" border="2" >
+
+   <table cellpadding="5"  class="table" >
 
 
-             <tr>
-             <th bgcolor="CornflowerBlue" width="140">TICKET NO</th>
-             <th bgcolor="CornflowerBlue" Width="140">TRAIN NO</th>
-             <th bgcolor="CornflowerBlue" width="140">TRAIN NAME</th>
-             <th bgcolor="CornflowerBlue" width="140">D.O.J</th>
-             <th bgcolor="CornflowerBlue" Width="140">SOURCE</th>
-             <th bgcolor="CornflowerBlue" width="140">DESTINATION</th>
-             <th bgcolor="CornflowerBlue" width="140">PARTY NAME</th>
-             <th bgcolor="CornflowerBlue" Width="140">NO.OF ITEMS</th>
-             <th bgcolor="CornflowerBlue" width="140">WEIGHT</th>
-             <th bgcolor="CornflowerBlue" width="140">FARE</th>
-             <th bgcolor="CornflowerBlue" Width="140">STATUS</th>
+             <tr class="success">
+             <th align="left"  width="140">TICKET NO</th>
+             <th align="left"  Width="140">TRAIN NO</th>
+             <th  align="left"  width="140">TRAIN NAME</th>
+             <th align="left"  width="140">D.O.J</th>
+             <th align="left"  Width="140">SOURCE</th>
+             <th align="left"  width="140">DESTINATION</th>
+             <th align="left"  width="140">PARTY NAME</th>
+             <th align="left"  Width="140">NO.OF ITEMS</th>
+             <th align="left"  width="140">WEIGHT</th>
+             <th align="left"  width="140">FARE</th>
+             <th  align="left"  Width="140">STATUS</th>
              
             
             
              </tr>
              
-  </TABLE>  
-   </CENTER>
+
  
   <%
   ResultSet rs=(ResultSet)request.getAttribute("rs");
   while(rs.next())
   {%>
-<table cellpadding="5" border="2" >
+
 
 
        
              
              
-             <tr>
-                 <td align="center" width="140"><%out.println(rs.getInt(1)); %></td>
-                 <td align="center" width="140"><%out.println(rs.getInt(2)); %></td>
-                 <td align="center" width="140"><%out.println(rs.getString(3)); %></td>
-                 <td align="center" width="140"><%out.println(rs.getString(4)); %></td>
-                 <td align="center" width="140"><%out.println(rs.getString(5)); %></td>
-                 <td align="center" width="140"><%out.println(rs.getString(6)); %></td>
-                 <td align="center" width="140"><%out.println(rs.getString(7)); %></td>
-                 <td align="center" width="140"><%out.println(rs.getInt(8)); %></td>
-                 <td align="center" width="140"><%out.println(rs.getInt(9)); %></td>
-                 <td align="center" width="140"><%out.println(rs.getInt(10)); %></td>
-                 <td align="center" width="140"><%out.println(rs.getString(11)); %></td>
+             <tr  class="info">
+                 <td align="left" width="140"><%out.println(rs.getInt(1)); %></td>
+                 <td align="left" width="140"><%out.println(rs.getInt(2)); %></td>
+                 <td align="left" width="140"><%out.println(rs.getString(3)); %></td>
+                 <td align="left" width="140"><%out.println(rs.getString(4)); %></td>
+                 <td align="left" width="140"><%out.println(rs.getString(5)); %></td>
+                 <td align="left" width="140"><%out.println(rs.getString(6)); %></td>
+                 <td align="left" width="140"><%out.println(rs.getString(7)); %></td>
+                 <td align="left" width="140"><%out.println(rs.getInt(8)); %></td>
+                 <td align="left" width="140"><%out.println(rs.getInt(9)); %></td>
+                 <td align="left" width="140"><%out.println(rs.getInt(10)); %></td>
+                 <td align="left" width="140"><%out.println(rs.getString(11)); %></td>
                                  
              </tr>
-</table>
+
              <% }
          %>
-
+</table>
+ </div>
 <BR>
 <BR>
 <BR>
+<center>
 <form method="post" name="verifyForm">
 Enter the Ticket Number:
-<input type="hidden" name="status" >
-<input type="text" name="ticketNo">
-<input type="submit" name="Accept" value="Accept" onclick="verify1()">
-<input type="submit" name="Reject" value="Reject" onclick="verify2()">
 
+<input type="hidden" name="status" >
+<input type="text" name="ticketNo" required class="form-control" style="width:200px;">
+<br>
+<input type="submit" name="Accept" value="Accept" class="btn btn-primary"  onclick="verify1()" />
+<input type="submit" name="Reject" value="Reject" class="btn btn-warning" onclick="verify2()">
+</center>
 </form>
 <BR>
 <BR>
 <center>
-<a href="parcelOfficerHomePage.html">Go back</a>
+<button type="button" class="btn btn-success"><a href="parcelOfficerHomePage.html" style="text-decoration: none;">Go back</a></button>
+
 </center>
 
 </body>
