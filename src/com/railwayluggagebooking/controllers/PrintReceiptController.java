@@ -34,13 +34,19 @@ public class PrintReceiptController extends HttpServlet {
 	        }
 	     catch(NullPointerException ne){
 	    	 
-	        	out.println("<html>");
+	        	/*out.println("<html>");
 	        	out.println("<body>");
 	        	out.println("<h3>Enter a valid ticket number</h3>");
 	        	out.println("</body>");
-	        	out.println("</html>");
+	        	out.println("</html>");*/
 	        	//RequestDispatcher rd = request.getRequestDispatcher("PrintReceiptController.java");
-	        }
+	         
+	    	 RequestDispatcher rd = request.getRequestDispatcher("/clerkReceiptPage.jsp");
+	    	 request.setAttribute("msg", "Enter a valid Ticket Number");  
+	    	 rd.forward(request, response);
+	           
+	     
+	     }
 	     
 	     catch(ClassNotFoundException ce)
 	        {

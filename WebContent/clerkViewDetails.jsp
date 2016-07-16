@@ -7,6 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="shortcut icon" href="image\logo.ico" />
 <title>View Details</title>
 </head>
 <body bgcolor="#85FFFF">

@@ -77,7 +77,8 @@ public  class LoginController extends HttpServlet {
 
 	        if( role.equalsIgnoreCase("invalid")){
 	          
-	            RequestDispatcher rd = request.getRequestDispatcher("/invalidPage.html");
+	            RequestDispatcher rd = request.getRequestDispatcher("/Loginpage.jsp");
+	            request.setAttribute("msg","Invalid User Id Password");
 	            rd.forward(request, response);
 
 	        }
