@@ -68,6 +68,7 @@ public class LuggageDetailsController extends HttpServlet {
 	 	        }
 	 	        catch(SQLException se){
 	 	            se.printStackTrace();	 	           
+	 	            System.out.println("you have enter same id twice, inside exception");
 	 	        }
 	 	        
 	 	       request.setAttribute("totalFare",totalFare); 

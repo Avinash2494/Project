@@ -11,23 +11,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.railwayluggagebooking.bean.LuggageAnalysisBean;
+import com.railwayluggagebooking.services.LuggageDetailsService;
 import com.railwayluggagebooking.services.ViewPendingRequestsService;
 
-
-
-public class VeiwPendingRequestsController extends HttpServlet {
+public class LuggageAnalysisController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 response.setContentType("text/html;charset=UTF-8");
 	     PrintWriter out = response.getWriter();
-	     
-	     ViewPendingRequestsService viewPendingRequestsService = new ViewPendingRequestsService();
-	
+	      String flag = request.getParameter("analysis");
+	     LuggageDetailsService luggageDetailService = new LuggageDetailsService();
+	     LuggageAnalysisBean luggageAnalysisBean = new LuggageAnalysisBean();
+	     luggageAnalysisBean.setFlag(flag);
 	     ResultSet rs=null;
 	     try
 			{
-				rs=viewPendingRequestsService.getPendingRequests();
+				rs=luggageDetailService.luggageAnalysis(luggageAnalysisBean);
 			}
 	     catch(ClassNotFoundException ce)
 		    {
@@ -41,9 +42,10 @@ public class VeiwPendingRequestsController extends HttpServlet {
 	
 	     
 	     request.setAttribute("rs", rs);
-	        RequestDispatcher rd=request.getRequestDispatcher("poVerificationPage.jsp");
+	        RequestDispatcher rd=request.getRequestDispatcher("/clerkAnalysis.jsp");
 	        rd.forward(request, response);
 	
 		}
 	
+
 }

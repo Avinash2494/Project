@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@page import="java.sql.ResultSet"%>
 <html lang="en">
 
 <head>
@@ -98,55 +99,43 @@
             </div>
             <!-- /.navbar-static-side -->
         </nav>
-
+      
         <div id="page-wrapper">
-                <div id="myCarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
-    	<!-- Carousel indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>   
-        <!-- Wrapper for carousel items -->
-        <div class="carousel-inner">
-            <div class="active item">
-                <img src="image/1.jpg" alt="First Slide" width="400px" height="700">
-         		<div class="carousel-caption">
-                  <h3>Welcome To Indian Railways</h3>
-                  <p>indian railway lifeline to the nation</p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="image/2.jpg" alt="Second Slide" width="400px" height="700">
-                <div class="carousel-caption">
-                  <h3>Welcome To Indian Railways</h3>
-                  <p>indian railway lifeline to the nation</p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="image/3.JPG" alt="Third Slide" width="400px" height="700">
-                <div class="carousel-caption">
-                 <h3>Welcome To Indian Railways</h3>
-                  <p>indian railway lifeline to the nation</p>
-                </div>
-            </div>
-        </div>
-        <!-- Carousel controls -->
-        <a class="carousel-control left" href="#myCarousel" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-        </a>
-        <a class="carousel-control right" href="#myCarousel" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-        </a>
-    </div>
-        
-				
-				</div>
-                
-            </div>
-            
-        </div>
-        
+        <br><br><br><br><br><br>
+        <form action="LuggageAnalysisController">
+       <center> 
+        <div class="form-group"style="width:400px">
+       
+        <select class="form-control" id="sel1" name="analysis">
+               <option value="1">DayWise</option>
+               <option value="2">TrainWise</option>
+       </select>
+       
+</div>
+
+           <button type="submit" class="btn btn-success">Success</button>
+                <%
+                   ResultSet rs =  (ResultSet) request.getAttribute("rs");
+                  if(rs!=null){%>
+                   <table class="table">
+                   <tr class="success"><td>No Of Ticket Booked</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>DayWise/TrainWise</td></tr>
+                   <%while(rs.next()){%>
+                     <br><br>
+                     <tr class="info">
+                     <td><%out.println(rs.getInt(1));%></td>
+                     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                     <td><%out.println(rs.getString(2));%></td></tr>
+                     
+                      
+                     
+                   
+                   
+                   
+                   <%}%>
+                <%}%>
+                </table>
+            </form>
+            </center>
     </div>
     
 </body>

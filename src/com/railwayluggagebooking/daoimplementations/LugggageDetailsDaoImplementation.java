@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import com.railwayluggagebooking.bean.LuggageAnalysisBean;
 import com.railwayluggagebooking.bean.LuggageDetailsBean;
 import com.railwayluggagebooking.daointerfaces.LuggageDetailsDao;
 import com.railwayluggagebooking.utilities.DButilites;
@@ -29,13 +30,14 @@ public class LugggageDetailsDaoImplementation implements LuggageDetailsDao{
 			
 		Statement st =con.createStatement();
 		
-		ResultSet rs=st.executeQuery("select fare_perKg from RPLBS_FareTable where source='"+luggageDetails.getSource()+"' and destination='"+luggageDetails.getDestination()+"'");
+		ResultSet rs=st.executeQuery("select FARE_PERKG from RPLBS_FareTable where source='"+luggageDetails.getSource()+"' and destination='"+luggageDetails.getDestination()+"'");
 		
 		while(rs.next())
 		{
+			System.out.println("inside while loop");
 			farePerKg=rs.getInt(1);
 		}
-	
+	     System.out.println(farePerKg);
 		totalFare=farePerKg*luggageDetails.getWeight();
 		System.out.println(totalFare);
 		
@@ -70,5 +72,23 @@ public class LugggageDetailsDaoImplementation implements LuggageDetailsDao{
 		}
 		return totalFare;
 		
+	}
+
+	@Override
+	public ResultSet luggageAnalysis(LuggageAnalysisBean luggageAnalysisBean) throws ClassNotFoundException, SQLException {
+		Connection con = DButilites.getConnection();
+		if(con!=null)
+	     System.out.println("connection succes");
+		Statement st =con.createStatement();
+		ResultSet rs =null;
+		if(luggageAnalysisBean.getFlag().equals("1")){
+	         rs=st.executeQuery("select count(TICKET_NUM), DATE_OF_JOURNEY  FROM RPLBS_LUGGAGEDETAILS GROUP BY DATE_OF_JOURNEY");
+		}
+		if(luggageAnalysisBean.getFlag().equals("2")){
+			rs=st.executeQuery("select count(TICKET_NUM), TRAIN_NUM  FROM RPLBS_LUGGAGEDETAILS GROUP BY TRAIN_NUM");
+			}
+		
+		System.out.println(rs);
+		return rs;
 	}    
 }

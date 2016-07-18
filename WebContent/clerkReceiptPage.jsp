@@ -76,6 +76,9 @@
                             <a href="clerkReceiptPage.jsp"><i class="fa fa-edit fa-fw"></i> GenerateReceipt</a>
                         </li>
                         <li>
+                            <a href="clerkAnalysis.html"><i class="fa fa-bar-chart fa-fw"></i> Analysis</a>
+                        </li>
+                        <li>
                             <a href="Loginpage.jsp"><i class="fa fa-edit fa-fw"></i> LogOut</a>
                         </li>
                        
