@@ -35,6 +35,15 @@
     
 
     <script src="dist/js/sb-admin-2.js"></script>
+    <script>
+   function noBack()
+   {
+     window.history.forward();
+  
+   }
+   </script>
+ 
+    
     <style type="text/css">
     .carousel{
     background: #2f4357;
@@ -50,7 +59,7 @@
 
 </head>
 
-<body>
+<body  onload="noBack()">
 
     <div id="wrapper">
 
@@ -90,7 +99,7 @@
                             <a href="clerkAnalysis.jsp"><i class="fa fa-bar-chart fa-fw"></i> Analysis</a>
                         </li>
                         <li>
-                            <a href="Loginpage.jsp"><i class="fa fa-edit fa-fw"></i> LogOut</a>
+                            <a href="LogOutController"><i class="fa fa-edit fa-fw"></i> LogOut</a>
                         </li>
                        
                     </ul>
@@ -113,11 +122,11 @@
        
 </div>
 
-           <button type="submit" class="btn btn-success">Success</button>
+           <button type="submit" class="btn btn-success">Submit</button>
                 <%
                    ResultSet rs =  (ResultSet) request.getAttribute("rs");
                   if(rs!=null){%>
-                   <table class="table">
+                   <table border="0" class="table">
                    <tr class="success"><td>No Of Ticket Booked</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>DayWise/TrainWise</td></tr>
                    <%while(rs.next()){%>
                      <br><br>

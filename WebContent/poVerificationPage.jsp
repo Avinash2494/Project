@@ -52,10 +52,16 @@
 	
 	
 </script>
+<script>
+   function noBack()
+   {
+     window.history.forward();
+   }
+   </script>
 
 </head>
 
-<body>
+<body   onload="noBack()">
 
     <div id="wrapper">
 
@@ -89,7 +95,7 @@
                             <a href="VeiwPendingRequestsController" style="text-decoration: none;"> <i class="fa fa-table fa-fw"></i> Pending Requests</a>
                         </li>
                         <li>
-                            <a href="Loginpage.jsp" style="text-decoration: none;"><i class="fa fa-edit fa-fw"></i> LogOut</a>
+                            <a href="LogOutController" style="text-decoration: none;"><i class="fa fa-edit fa-fw"></i> LogOut</a>
                         </li>
                        
                     </ul>

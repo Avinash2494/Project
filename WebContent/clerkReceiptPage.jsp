@@ -36,10 +36,16 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
     <script src="dist/js/sb-admin-2.js"></script>
+      <script>
+   function noBack()
+   {
+     window.history.forward();
+   }
+   </script>
 
 </head>
 
-<body>
+<body onload="noBack()">
 
     <div id="wrapper">
         
@@ -76,10 +82,10 @@
                             <a href="clerkReceiptPage.jsp"><i class="fa fa-edit fa-fw"></i> GenerateReceipt</a>
                         </li>
                         <li>
-                            <a href="clerkAnalysis.html"><i class="fa fa-bar-chart fa-fw"></i> Analysis</a>
+                            <a href="clerkAnalysis.jsp"><i class="fa fa-bar-chart fa-fw"></i> Analysis</a>
                         </li>
                         <li>
-                            <a href="Loginpage.jsp"><i class="fa fa-edit fa-fw"></i> LogOut</a>
+                            <a href="LogOutController"><i class="fa fa-edit fa-fw"></i> LogOut</a>
                         </li>
                        
                     </ul>

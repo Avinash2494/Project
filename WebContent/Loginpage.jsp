@@ -11,6 +11,7 @@
    function noBack()
    {
      window.history.forward();
+     
    }
    function validate(userName,password)
 	{
@@ -36,6 +37,7 @@
 </head>
 
 <body bgcolor="#85FFFF" onload="noBack()" style="margin:150;margin-top: 100px;"> 
+
 <center><img alt="RailwayLogo" src="image\logo.png" height="100" width="100"></center>
 <div class="container">
 	<div class="row">
@@ -72,6 +74,13 @@ else
     <strong>Wrong Credentials !</strong>
 </div> </center>
   <%}%>    
+  
+  <%
+response.setHeader("Pragma","no-cache");
+response.setHeader("Cache-Control","no-store");
+response.setHeader("Expires","0");
+response.setDateHeader("Expires",-1);
+%>
 
 </body>
 </html>

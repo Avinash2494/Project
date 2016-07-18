@@ -9,8 +9,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="shortcut icon" href="image\logo.ico" />
 <title>View Details</title>
+ <script>
+   function noBack()
+   {
+     window.history.forward();
+   }
+   </script>
 </head>
-<body bgcolor="#85FFFF">
+<body  onload="noBack()" bgcolor="#85FFFF">
 
 <center>
    <h4>CONSOLIDATE REPORT</h4>
